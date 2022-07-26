@@ -1,12 +1,19 @@
 pipeline {
-    agent {
-        dockerfile true
+  agent { label "linux" }
+  stages {
+    stage("build") {
+      steps {
+        sh """
+          sudo docker build -t hello_there .
+        """
+      }
     }
-    stages {
-        stage('Test') {
-            steps {
-                sh 'pip3 --version'
-            }
-        }
+    stage("run") {
+      steps {
+        sh """
+          sudo docker run --rm hello_there
+        """
+      }
     }
+  }
 }
