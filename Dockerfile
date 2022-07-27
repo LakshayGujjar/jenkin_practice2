@@ -1,5 +1,6 @@
-FROM python:3.7-alpine
+FROM ubuntu
 
+RUN apt update
 RUN apt install python3-pip -y
 RUN pip3 install Flask
 
