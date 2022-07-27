@@ -11,7 +11,7 @@ pipeline {
     stage("run") {
       steps {
         sh """
-          docker run -d -p 5000:5000 --name hello_there
+          docker run -d -p 5000:5000 hello_there
         """
       }
     }
